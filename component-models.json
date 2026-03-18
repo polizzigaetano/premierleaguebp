@@ -1084,6 +1084,18 @@
     ]
   },
   {
+    "id": "video-background",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "video",
+        "label": "Video URL",
+        "description": "URL to the video file (e.g. .mp4). Plays in a loop as a decorative background."
+      }
+    ]
+  },
+  {
     "id": "video",
     "fields": [
       {

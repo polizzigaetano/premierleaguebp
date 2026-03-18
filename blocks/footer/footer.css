@@ -50,7 +50,7 @@ footer .footer picture {
 }
 
 footer .footer picture img {
-  height: 16px;
+  height: 32px;
   width: auto;
   display: block;
 }
@@ -91,6 +91,11 @@ footer .footer li a,
 footer .footer p a:hover {
   color: var(--accent-color);
   text-decoration: none;
+}
+
+footer .footer li a:hover,
+footer .footer p a:hover {
+  border-bottom: 2px solid var(--pl-green);
 }
 
 footer .footer p a::after {
