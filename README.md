@@ -1,4 +1,4 @@
-# Sky Brand Portal EDS (PoC)
+# Premier League Brand Portal EDS (PoC)
 
 A brand resource hub built with Adobe Edge Delivery Services (EDS) and WYSIWYG authoring. This portal provides access to brand guidelines, approved photography, templates, and other brand assets.
 
