@@ -274,7 +274,7 @@ export default async function decorate(block) {
   
   const userName = document.createElement('span');
   userName.className = 'sidebar-nav-user-name';
-  userName.textContent = 'Gaetano Polizzi';
+  userName.textContent = 'Tano Polizzi';
   
   userProfile.appendChild(userIcon);
   userProfile.appendChild(userName);

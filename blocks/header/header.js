@@ -20,22 +20,21 @@ export default async function decorate(block) {
   const topRow = document.createElement('div');
   topRow.className = 'nav-top-row';
 
-  // Tools section (Sky Global dropdown)
+  // Tools section (Clubs button)
   const navTools = document.createElement('div');
   navTools.className = 'nav-tools';
 
-  // Sky Global dropdown
-  const dropdown = document.createElement('button');
-  dropdown.className = 'dropdown-button';
-  dropdown.setAttribute('type', 'button');
-  dropdown.innerHTML = `
-    Sky Global
+  const clubsButton = document.createElement('button');
+  clubsButton.className = 'dropdown-button';
+  clubsButton.setAttribute('type', 'button');
+  clubsButton.innerHTML = `
+    Clubs
     <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
       <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" fill="none"/>
     </svg>
   `;
 
-  navTools.appendChild(dropdown);
+  navTools.appendChild(clubsButton);
 
   // Add title from first fragment section to top row
   if (fragment && fragment.children.length > 0) {

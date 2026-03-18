@@ -1,18 +1,18 @@
 /* Header with Sky gradient bar and two-row layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: var(--pl-purple);
   width: 100%;
   z-index: 100;
   position: fixed;
   box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
 }
 
-/* Sky gradient bar at top */
+/* Green bar at top */
 header .nav-wrapper::before {
   content: '';
   display: block;
   height: 4px;
-  background: var(--sky-gradient);
+  background: var(--pl-green);
 }
 
 /* Main header container */
@@ -33,7 +33,7 @@ header .nav-top-row {
   min-height: 60px;
   padding: 0 24px 12px;
   margin-top: 24px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
 }
 
 /* Title in top row */
@@ -84,7 +84,7 @@ header .nav-title li {
 header .nav-title li:not(:last-child)::after {
   content: '|';
   margin: 0 12px;
-  color: var(--border-color);
+  color: rgb(255 255 255 / 50%);
 }
 
 header .nav-title h1,
@@ -94,7 +94,7 @@ header .nav-title h4 {
   margin: 0;
   font-size: 20px;
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--text-color-light);
   line-height: 1;
 }
 
@@ -104,7 +104,7 @@ header .nav-sections {
   align-items: center;
   padding: 12px 24px;
   min-height: 48px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
 }
 
 header .nav-sections .default-content-wrapper {
@@ -119,18 +119,19 @@ header .nav-tools .dropdown-button {
   gap: 8px;
   padding: 8px 16px;
   background-color: transparent;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--pl-green);
   border-radius: 8px;
   font-size: 14px;
   font-weight: 700;
   font-style: normal;
-  color: #000;
+  color: var(--text-color-light);
   cursor: pointer;
-  transition: background-color var(--transition-fast);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
 }
 
 header .nav-tools .dropdown-button:hover {
-  background-color: var(--background-color-secondary);
+  background-color: rgb(255 255 255 / 15%);
+  border-color: var(--text-color-light);
 }
 
 header .nav-tools .dropdown-icon {
@@ -140,7 +141,7 @@ header .nav-tools .dropdown-icon {
 
 /* Links */
 header nav a:any-link {
-  color: var(--text-color-muted);
+  color: rgb(255 255 255 / 85%);
   transition: color var(--transition-fast);
   text-decoration: none;
   position: relative;
@@ -148,19 +149,16 @@ header nav a:any-link {
 }
 
 header nav a:any-link:hover {
-  color: var(--accent-color);
+  color: var(--pl-green);
   text-decoration: none;
 }
 
-/* Active/clicked navigation link with Sky gradient text and border-bottom */
+/* Active/clicked navigation link with green text and border-bottom */
 header .nav-title a:any-link.active,
 header .nav-title a:any-link:active,
 header .nav-title a:any-link.clicked {
-  background: var(--sky-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: var(--pl-green);
+  -webkit-text-fill-color: var(--pl-green);
 }
 
 header .nav-title a:any-link.active::after,
@@ -172,7 +170,7 @@ header .nav-title a:any-link.clicked::after {
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--sky-gradient);
+  background: var(--pl-green);
 }
 
 header nav p {

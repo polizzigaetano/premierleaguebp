@@ -5,8 +5,8 @@
   top: 0;
   height: 100vh;
   width: 220px;
-  background-color: #000;
-  border-right: 1px solid #333;
+  background-color: var(--pl-purple);
+  border-top: 4px solid var(--pl-green);
   overflow-y: auto;
   z-index: 1000;
   transition: width 0.3s ease, transform 0.3s ease;
@@ -25,7 +25,6 @@
 /* Sidebar Header */
 .sidebar-nav-header {
   padding: 0;
-  border-bottom: 1px solid #333;
   margin-bottom: 0;
   margin-left: 16px;
   padding-top: 0;
@@ -107,7 +106,7 @@
 .sidebar-nav-section {
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid var(--pl-green);
   padding-bottom: 4px;
   margin-bottom: 4px;
 }
@@ -195,26 +194,30 @@
 
 /* User Profile Section */
 .sidebar-nav-footer {
-  padding: 24px;
-  border-top: 1px solid #333;
+  padding: 12px 16px 24px;
+  border-top: 1px solid rgb(255 255 255 / 20%);
   margin-top: auto;
+  margin-bottom: 48px;
 }
 
 .sidebar-nav-user {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px;
-  background-color: rgb(255 255 255 / 10%);
-  border-radius: 0 0 0 var(--border-radius-sm);
-  margin-bottom: 24px;
+  padding: 12px 16px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--pl-green);
+  color: var(--pl-purple);
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 0;
 }
 
 .sidebar-nav-user-icon {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: rgb(255 255 255 / 10%);
+  background-color: rgb(56 0 60 / 15%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -225,13 +228,14 @@
   width: 18px;
   height: 18px;
   color: #fff;
+  fill: #fff;
 }
 
 .sidebar-nav-user-name {
-  color: #fff;
+  color: var(--pl-purple);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-xs);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 /* Collapsed State */
