@@ -151,6 +151,17 @@ header nav a:any-link:hover {
   text-decoration: none;
 }
 
+/* Hover: green border-bottom */
+header .nav-title a:any-link:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--pl-green);
+}
+
 /* Active/clicked navigation link with green text and border-bottom */
 header .nav-title a:any-link.active,
 header .nav-title a:any-link:active,
