@@ -33,7 +33,6 @@ header .nav-top-row {
   min-height: 60px;
   padding: 0 24px 12px;
   margin-top: 24px;
-  border-bottom: 1px solid rgb(255 255 255 / 20%);
 }
 
 /* Title in top row */
@@ -104,7 +103,6 @@ header .nav-sections {
   align-items: center;
   padding: 12px 24px;
   min-height: 48px;
-  border-bottom: 1px solid rgb(255 255 255 / 20%);
 }
 
 header .nav-sections .default-content-wrapper {

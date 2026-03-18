@@ -48,13 +48,16 @@ export default async function decorate(block) {
   // Clear block and add sidebar class directly to block
   block.className = 'sidebar-nav';
   
-  // Create header section
+  // Create header section with logo
   const header = document.createElement('div');
   header.className = 'sidebar-nav-header';
   
-  const title = document.createElement('h2');
-  title.className = 'sidebar-nav-title';
-  title.textContent = 'Premier League';
+  const title = document.createElement('div');
+  title.className = 'sidebar-nav-title sidebar-nav-title--logo';
+  const logo = document.createElement('img');
+  logo.src = `${window.hlx?.codeBasePath || ''}/icons/pl-logo.png`;
+  logo.alt = 'Premier League';
+  title.appendChild(logo);
   
   header.appendChild(title);
   
