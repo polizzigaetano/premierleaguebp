@@ -54,7 +54,7 @@ export default async function decorate(block) {
   
   const title = document.createElement('h2');
   title.className = 'sidebar-nav-title';
-  title.textContent = 'sky creative portal';
+  title.textContent = 'Premier League';
   
   header.appendChild(title);
   
