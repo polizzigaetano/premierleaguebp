@@ -633,13 +633,13 @@
 
 /* Different gradients for each stat */
 .stat-item:first-child .stat-value {
-  background-image: linear-gradient(90deg, #ff7800 0%, #f80032 50%, #ff00a0 100%);
+  background-image: linear-gradient(90deg, #eaff04 0%, #00ff87 50%, #05f1ff 100%);
   background-clip: text;
   -webkit-background-clip: text;
 }
 
 .stat-item:last-child .stat-value {
-  background-image: linear-gradient(90deg, #8c28ff 0%, #0023ff 50%, #1798ff 100%);
+  background-image: linear-gradient(90deg, #05f1ff 0%, #ff005a 100%);
   background-clip: text;
   -webkit-background-clip: text;
 }
@@ -1104,13 +1104,13 @@
   }
 
   .stat-item:first-child .stat-value {
-    background-image: linear-gradient(90deg, #ff7800 0%, #f80032 50%, #ff00a0 100%);
+    background-image: linear-gradient(90deg, #eaff04 0%, #00ff87 50%, #05f1ff 100%);
     background-clip: text;
     -webkit-background-clip: text;
   }
 
   .stat-item:last-child .stat-value {
-    background-image: linear-gradient(90deg, #8c28ff 0%, #0023ff 50%, #1798ff 100%);
+    background-image: linear-gradient(90deg, #05f1ff 0%, #ff005a 100%);
     background-clip: text;
     -webkit-background-clip: text;
   }

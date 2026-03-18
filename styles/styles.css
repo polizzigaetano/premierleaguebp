@@ -11,45 +11,54 @@
  */
 
 :root {
-  /* Sky Brand Colors */
+  /* Premier League Brand Colors */
 
-  /* Sky White - backgrounds */
+  /* Primary brand purple - logo, headings, dark text */
+  --pl-purple: #38003c;
+
+  /* Accent palette - vibrant backgrounds */
+  --pl-pink: #ff005a;
+  --pl-cyan: #05f1ff;
+  --pl-green: #00ff87;
+  --pl-yellow: #eaff04;
+
+  /* Backgrounds */
   --background-color: #fafafd;
-  --background-color-secondary: #f4f6fc;
+  --background-color-secondary: #f4f4f6;
   --background-color-card: #fff;
   --light-color: #fff;
-  --dark-color: #1a1a1a;
-  
-  /* Sky Gradient Colors */
-  --sky-orange: #ff7800;
-  --sky-red: #f80032;
-  --sky-magenta: #ff00a0;
-  --sky-purple: #8c28ff;
-  --sky-blue: #0023ff;
-  --sky-light-blue: #1798ff;
-  
+  --dark-color: #38003c;
+
   /* Text colors */
-  --text-color: #1a1a1a;
-  --text-color-muted: #666;
+  --text-color: #38003c;
+  --text-color-muted: #5c4d5e;
   --text-color-light: #fff;
-  
+
   /* Link and accent colors */
-  --link-color: #0023ff;
-  --link-hover-color: #1798ff;
-  --accent-color: #0023ff;
-  --accent-color-hover: #1798ff;
-  
+  --link-color: #38003c;
+  --link-hover-color: #ff005a;
+  --accent-color: #38003c;
+  --accent-color-hover: #ff005a;
+
   /* Borders */
-  --border-color: #e0e0e0;
-  --border-color-hover: #0023ff;
-  
-  /* Sky Gradient */
-  --sky-gradient: linear-gradient(90deg, #ff7800 0%, #f80032 20%, #ff00a0 40%, #8c28ff 60%, #0023ff 80%, #1798ff 100%);
-  --sky-gradient-vertical: linear-gradient(180deg, #ff7800 0%, #f80032 20%, #ff00a0 40%, #8c28ff 60%, #0023ff 80%, #1798ff 100%);
+  --border-color: #e8e0e9;
+  --border-color-hover: #38003c;
+
+  /* Main gradient - Premier League palette */
+  --main-gradient: linear-gradient(to right, #eaff04 0%, #00ff87 33%, #05f1ff 66%, #ff005a 100%);
+  --main-gradient-vertical: linear-gradient(180deg, #eaff04 0%, #00ff87 33%, #05f1ff 66%, #ff005a 100%);
+  --main-gradient-lime: #00ff87;
+  --main-gradient-cyan: #05f1ff;
+  --main-gradient-pink: #ff005a;
+  --main-gradient-yellow: #eaff04;
+
+  /* Legacy gradient alias (uses main palette) */
+  --sky-gradient: var(--main-gradient);
+  --sky-gradient-vertical: var(--main-gradient-vertical);
 
   /* fonts */
-  --body-font-family: 'Sky Text', roboto, roboto-fallback, sans-serif;
-  --heading-font-family: 'Sky Text', roboto, roboto-fallback, sans-serif;
+  --body-font-family: 'Premier League W01', premier-league-fallback, sans-serif;
+  --heading-font-family: 'Premier League W01', premier-league-fallback, sans-serif;
   --icon-font-family: inherit;
 
   /* body sizes */
@@ -80,22 +89,10 @@
   --transition-normal: 250ms ease;
 }
 
-/* fallback fonts */
+/* fallback font for Premier League */
 @font-face {
-  font-family: sky-text-fallback;
+  font-family: premier-league-fallback;
   size-adjust: 100%;
-  src: local('Arial');
-}
-
-@font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
-}
-
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
   src: local('Arial');
 }
 
