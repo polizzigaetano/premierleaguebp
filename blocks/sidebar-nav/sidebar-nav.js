@@ -1,4 +1,3 @@
-import { isAdobeHubPage } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 export default async function decorate(block) {
@@ -260,33 +259,6 @@ export default async function decorate(block) {
     }
   }
   
-  // Footer user chip: shown in sidebar except on Adobe Hub (header shows same user in Clubs slot)
-  let footer = null;
-  if (!isAdobeHubPage()) {
-    footer = document.createElement('div');
-    footer.className = 'sidebar-nav-footer';
-
-    const userProfile = document.createElement('div');
-    userProfile.className = 'sidebar-nav-user';
-
-    const userIcon = document.createElement('div');
-    userIcon.className = 'sidebar-nav-user-icon';
-    userIcon.innerHTML = `
-    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z" fill="currentColor"/>
-      <path d="M10 12C5.58172 12 2 14.2386 2 17V20H18V17C18 14.2386 14.4183 12 10 12Z" fill="currentColor"/>
-    </svg>
-  `;
-
-    const userName = document.createElement('span');
-    userName.className = 'sidebar-nav-user-name';
-    userName.textContent = 'Tano Polizzi';
-
-    userProfile.appendChild(userIcon);
-    userProfile.appendChild(userName);
-    footer.appendChild(userProfile);
-  }
-
   // Now process the list items we found
   if (listItemsToProcess.length > 0) {
     listItemsToProcess.forEach((listItem) => {
@@ -347,7 +319,4 @@ export default async function decorate(block) {
   block.textContent = '';
   block.appendChild(header);
   block.appendChild(navItems);
-  if (footer) {
-    block.appendChild(footer);
-  }
 }

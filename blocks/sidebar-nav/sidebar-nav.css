@@ -206,52 +206,6 @@
   color: #ffffff;
 }
 
-/* User Profile Section */
-.sidebar-nav-footer {
-  padding: 12px 16px 24px;
-  border-top: 1px solid rgb(255 255 255 / 20%);
-  margin-top: auto;
-  margin-bottom: 48px;
-}
-
-.sidebar-nav-user {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: var(--pl-green);
-  color: var(--pl-purple);
-  border-radius: var(--border-radius-sm);
-  margin-bottom: 0;
-}
-
-.sidebar-nav-user-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: rgb(56 0 60 / 15%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.sidebar-nav-user-icon svg {
-  width: 18px;
-  height: 18px;
-  color: #fff;
-  fill: #fff;
-}
-
-.sidebar-nav-user-name {
-  color: var(--pl-purple);
-  font-family: var(--body-font-family);
-  font-size: var(--body-font-size-xs);
-  font-weight: 700;
-}
-
 /* Collapsed State */
 .sidebar-nav-wrapper.collapsed {
   width: 80px;
@@ -268,8 +222,7 @@
 }
 
 .sidebar-nav-wrapper.collapsed .sidebar-nav-title:not(.sidebar-nav-title--logo),
-.sidebar-nav-wrapper.collapsed .sidebar-nav-item-text,
-.sidebar-nav-wrapper.collapsed .sidebar-nav-user-name {
+.sidebar-nav-wrapper.collapsed .sidebar-nav-item-text {
   display: none;
 }
 
@@ -303,16 +256,6 @@
 .sidebar-nav-wrapper.collapsed .sidebar-nav-subitems {
   display: none !important;
 }
-
-.sidebar-nav-wrapper.collapsed .sidebar-nav-footer {
-  padding: 24px 8px;
-}
-
-.sidebar-nav-wrapper.collapsed .sidebar-nav-user {
-  justify-content: center;
-  padding: 12px;
-}
-
 
 /* Adjust main content when sidebar is present */
 body:has(.sidebar-nav-wrapper) main {

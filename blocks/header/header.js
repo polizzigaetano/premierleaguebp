@@ -1,4 +1,4 @@
-import { getMetadata, isAdobeHubPage } from '../../scripts/aem.js';
+import { getMetadata, isAdobeHubPage, isIndexLoginPage } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 /**
@@ -20,12 +20,11 @@ export default async function decorate(block) {
   const topRow = document.createElement('div');
   topRow.className = 'nav-top-row';
 
-  // Tools section: Clubs everywhere except Adobe Hub (user chip, same green outline)
+  // Tools section: Adobe Hub → user chip; index / home → Login; else Clubs (same green outline)
   const navTools = document.createElement('div');
   navTools.className = 'nav-tools';
 
-  const isAdobeHub = isAdobeHubPage();
-  if (isAdobeHub) {
+  if (isAdobeHubPage()) {
     const userButton = document.createElement('button');
     userButton.className = 'dropdown-button nav-header-user';
     userButton.setAttribute('type', 'button');
@@ -40,6 +39,12 @@ export default async function decorate(block) {
       <span class="nav-header-user-name">Tano Polizzi</span>
     `;
     navTools.appendChild(userButton);
+  } else if (isIndexLoginPage()) {
+    const loginButton = document.createElement('button');
+    loginButton.className = 'dropdown-button nav-header-login';
+    loginButton.setAttribute('type', 'button');
+    loginButton.textContent = 'Login';
+    navTools.appendChild(loginButton);
   } else {
     const clubsButton = document.createElement('button');
     clubsButton.className = 'dropdown-button';

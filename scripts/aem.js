@@ -322,6 +322,19 @@ function isAdobeHubPage(doc = document) {
 }
 
 /**
+ * Index / home layout: show Login in header instead of Clubs.
+ * Body class from template `index`, or URL is exactly / or /index.
+ * @param {Document} [doc]
+ * @returns {boolean}
+ */
+function isIndexLoginPage(doc = document) {
+  const win = doc.defaultView || window;
+  if (doc.body.classList.contains('index')) return true;
+  const normalized = win.location.pathname.replace(/\/$/, '') || '/';
+  return normalized === '/' || normalized === '/index';
+}
+
+/**
  * Returns a picture element with webp and fallbacks
  * @param {string} src The image URL
  * @param {string} [alt] The image alternative text
@@ -734,6 +747,7 @@ export {
   decorateTemplateAndTheme,
   getMetadata,
   isAdobeHubPage,
+  isIndexLoginPage,
   loadBlock,
   loadCSS,
   loadFooter,
