@@ -6,6 +6,27 @@ import {
 } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
+/** On landing, drop Adobe Hub from nav (path or label). */
+function removeAdobeHubLinksFromNavTitle(navTitle) {
+  if (!navTitle) return;
+  navTitle.querySelectorAll('a[href]').forEach((a) => {
+    let path = '';
+    try {
+      path = new URL(a.href, window.location).pathname;
+    } catch {
+      return;
+    }
+    const label = a.textContent.trim().toLowerCase();
+    if (!path.includes('adobe-hub') && label !== 'adobe hub') return;
+    const li = a.closest('li');
+    if (li) {
+      li.remove();
+    } else {
+      a.remove();
+    }
+  });
+}
+
 function appendHeaderUserChip(navTools) {
   const userButton = document.createElement('button');
   userButton.className = 'dropdown-button nav-header-user';
@@ -52,7 +73,7 @@ export default async function decorate(block) {
     const loginLink = document.createElement('a');
     loginLink.className = 'dropdown-button nav-header-login';
     const base = (window.hlx?.codeBasePath || '').replace(/\/$/, '');
-    loginLink.href = base ? `${base}/index` : '/index';
+    loginLink.href = base ? `${base}/` : '/';
     loginLink.textContent = 'Login';
     navTools.appendChild(loginLink);
   } else {
@@ -76,6 +97,9 @@ export default async function decorate(block) {
     if (sections[0]) {
       const titleSection = sections[0];
       titleSection.classList.add('nav-title');
+      if (isLandingPage()) {
+        removeAdobeHubLinksFromNavTitle(titleSection);
+      }
       topRow.appendChild(titleSection);
     }
   }

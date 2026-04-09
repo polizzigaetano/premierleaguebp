@@ -74,8 +74,8 @@
   --heading-font-size-s: 24px;
   --heading-font-size-xs: 22px;
 
-  /* nav height */
-  --nav-height: 64px;
+  /* Fixed header stack: green bar + nav-top-row margin + min-height + bottom padding (see blocks/header/header.css) */
+  --nav-height: calc(4px + 24px + 60px + 12px);
 
   /* border radius */
   --border-radius-sm: 8px;
@@ -356,9 +356,9 @@ main p.image picture {
   max-width: 100%;
 }
 
-/* Account for fixed header */
+/* Fixed header offset lives on first section so its background meets the header (no white band). */
 main {
-  padding-top: 50px;
+  padding-top: 0;
 }
 
 .icon {
@@ -386,6 +386,13 @@ main > .section > div {
 
 main > .section:first-of-type {
   margin-top: 0;
+  padding-top: var(--nav-height);
+}
+
+/* Highlight / light band: first section needs nav offset + band padding */
+main > .section.light:first-of-type,
+main > .section.highlight:first-of-type {
+  padding-top: calc(var(--nav-height) + 40px);
 }
 
 @media (width >= 900px) {
@@ -411,6 +418,11 @@ main > .section.section-has-background-image {
   background-repeat: no-repeat;
   margin: 0;
   padding: 48px 0;
+}
+
+/* Hero meets fixed header: nav offset + section padding (must stay after base .section-has-background-image) */
+main > .section.section-has-background-image:first-of-type {
+  padding-top: calc(var(--nav-height) + 48px);
 }
 
 /* Grey tint over photo (above bg image, below content) */

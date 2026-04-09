@@ -11,6 +11,7 @@ import {
   loadSections,
   loadCSS,
   readBlockConfig,
+  isLandingPage,
 } from './aem.js';
 
 /**
@@ -198,6 +199,9 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+  if (isLandingPage(doc)) {
+    doc.body.classList.add('landing');
+  }
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
