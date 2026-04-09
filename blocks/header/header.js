@@ -52,7 +52,7 @@ export default async function decorate(block) {
     const loginLink = document.createElement('a');
     loginLink.className = 'dropdown-button nav-header-login';
     const base = (window.hlx?.codeBasePath || '').replace(/\/$/, '');
-    loginLink.href = base ? `${base}/landing` : '/landing';
+    loginLink.href = base ? `${base}/index` : '/index';
     loginLink.textContent = 'Login';
     navTools.appendChild(loginLink);
   } else {

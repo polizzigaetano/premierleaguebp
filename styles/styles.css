@@ -404,6 +404,8 @@ main .section.highlight {
 
 /* Section background image (section-metadata: Background image) */
 main > .section.section-has-background-image {
+  position: relative;
+  isolation: isolate;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -411,9 +413,29 @@ main > .section.section-has-background-image {
   padding: 48px 0;
 }
 
+/* Grey tint over photo (above bg image, below content) */
+main > .section.section-has-background-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: rgb(38 38 40 / 48%);
+  pointer-events: none;
+}
+
 main > .section.section-has-background-image > div {
   position: relative;
   z-index: 1;
+}
+
+main > .section.section-has-background-image h1,
+main > .section.section-has-background-image h2,
+main > .section.section-has-background-image h3,
+main > .section.section-has-background-image h4,
+main > .section.section-has-background-image h5,
+main > .section.section-has-background-image h6 {
+  color: var(--text-color-light);
+  text-align: center;
 }
 
 /* card base styles for reuse */

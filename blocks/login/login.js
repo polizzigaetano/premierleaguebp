@@ -1,5 +1,6 @@
 /**
- * Login form block (username, password, submit). Wire authentication separately.
+ * Login form block (username, password, submit). On valid submit, navigates to /index.
+ * Still dispatches `login-submit` for optional listeners before navigation.
  * @param {Element} block
  */
 export default function decorate(block) {
@@ -66,6 +67,9 @@ export default function decorate(block) {
         },
       }),
     );
+    const base = (window.hlx?.codeBasePath || '').replace(/\/$/, '');
+    const indexUrl = base ? `${base}/index` : '/index';
+    window.location.assign(indexUrl);
   });
 
   block.appendChild(form);
