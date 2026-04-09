@@ -35,6 +35,12 @@
               "value": "highlight"
             }
           ]
+        },
+        {
+          "component": "reference",
+          "name": "backgroundImage",
+          "label": "Background image",
+          "description": "Covers the full section. Same as Background image row in section-metadata."
         }
       ]
     }
@@ -67,6 +73,7 @@
         "video-background",
         "carousel",
         "iframe",
+        "login",
         "action-button",
         "dynamic-media-image",
         "dynamic-media-video",

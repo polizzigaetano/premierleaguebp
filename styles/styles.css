@@ -402,6 +402,20 @@ main .section.highlight {
   padding: 40px 0;
 }
 
+/* Section background image (section-metadata: Background image) */
+main > .section.section-has-background-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 48px 0;
+}
+
+main > .section.section-has-background-image > div {
+  position: relative;
+  z-index: 1;
+}
+
 /* card base styles for reuse */
 .card {
   background-color: var(--background-color-card);

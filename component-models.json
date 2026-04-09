@@ -195,6 +195,14 @@
             "value": "highlight"
           }
         ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "backgroundImage",
+        "label": "Background image",
+        "multi": false,
+        "description": "Covers the full section (background-size: cover). Also supported via section-metadata in documents."
       }
     ]
   },

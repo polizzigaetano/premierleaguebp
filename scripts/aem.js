@@ -533,6 +533,19 @@ function decorateIcons(element, prefix = '') {
 }
 
 /**
+ * Applies a cover background image to a section (metadata key: background-image).
+ * @param {Element} section
+ * @param {string|string[]} rawValue image URL or first URL if array
+ */
+function applySectionBackgroundImage(section, rawValue) {
+  const url = Array.isArray(rawValue) ? rawValue[0] : rawValue;
+  if (!url || !String(url).trim()) return;
+  section.classList.add('section-has-background-image');
+  const clean = String(url).trim();
+  section.style.backgroundImage = `url(${JSON.stringify(clean)})`;
+}
+
+/**
  * Decorates all sections in a container element.
  * @param {Element} main The container element
  */
@@ -565,11 +578,20 @@ function decorateSections(main) {
             .filter((style) => style)
             .map((style) => toClassName(style.trim()));
           styles.forEach((style) => section.classList.add(style));
+        } else if (key === 'background-image' || key === 'backgroundimage') {
+          applySectionBackgroundImage(section, meta[key]);
         } else {
           section.dataset[toCamelCase(key)] = meta[key];
         }
       });
       sectionMeta.parentNode.remove();
+    }
+
+    if (
+      !section.classList.contains('section-has-background-image')
+      && section.dataset.backgroundImage
+    ) {
+      applySectionBackgroundImage(section, section.dataset.backgroundImage);
     }
   });
 }
