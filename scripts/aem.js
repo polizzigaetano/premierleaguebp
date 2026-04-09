@@ -322,16 +322,29 @@ function isAdobeHubPage(doc = document) {
 }
 
 /**
- * Index / home layout: show Login in header instead of Clubs.
+ * Index / home layout: same header user chip as Adobe Hub (not Clubs).
  * Body class from template `index`, or URL is exactly / or /index.
  * @param {Document} [doc]
  * @returns {boolean}
  */
-function isIndexLoginPage(doc = document) {
+function isIndexHomePage(doc = document) {
   const win = doc.defaultView || window;
   if (doc.body.classList.contains('index')) return true;
   const normalized = win.location.pathname.replace(/\/$/, '') || '/';
   return normalized === '/' || normalized === '/index';
+}
+
+/**
+ * Login landing page: show Login in header (links to /landing).
+ * Body class from template `landing`, or URL path ends with /landing.
+ * @param {Document} [doc]
+ * @returns {boolean}
+ */
+function isLandingPage(doc = document) {
+  const win = doc.defaultView || window;
+  if (doc.body.classList.contains('landing')) return true;
+  const normalized = win.location.pathname.replace(/\/$/, '') || '/';
+  return normalized === '/landing' || normalized.endsWith('/landing');
 }
 
 /**
@@ -747,7 +760,8 @@ export {
   decorateTemplateAndTheme,
   getMetadata,
   isAdobeHubPage,
-  isIndexLoginPage,
+  isIndexHomePage,
+  isLandingPage,
   loadBlock,
   loadCSS,
   loadFooter,

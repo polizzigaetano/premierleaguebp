@@ -1,5 +1,27 @@
-import { getMetadata, isAdobeHubPage, isIndexLoginPage } from '../../scripts/aem.js';
+import {
+  getMetadata,
+  isAdobeHubPage,
+  isIndexHomePage,
+  isLandingPage,
+} from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+
+function appendHeaderUserChip(navTools) {
+  const userButton = document.createElement('button');
+  userButton.className = 'dropdown-button nav-header-user';
+  userButton.setAttribute('type', 'button');
+  userButton.setAttribute('aria-label', 'Signed in user');
+  userButton.innerHTML = `
+    <span class="nav-header-user-icon" aria-hidden="true">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z" fill="currentColor"/>
+        <path d="M10 12C5.58172 12 2 14.2386 2 17V20H18V17C18 14.2386 14.4183 12 10 12Z" fill="currentColor"/>
+      </svg>
+    </span>
+    <span class="nav-header-user-name">Tano Polizzi</span>
+  `;
+  navTools.appendChild(userButton);
+}
 
 /**
  * Loads and decorates the header with Sky gradient bar and two-row layout
@@ -20,31 +42,19 @@ export default async function decorate(block) {
   const topRow = document.createElement('div');
   topRow.className = 'nav-top-row';
 
-  // Tools section: Adobe Hub → user chip; index / home → Login; else Clubs (same green outline)
+  // Tools: Hub + index/home → user chip; landing → Login; else Clubs
   const navTools = document.createElement('div');
   navTools.className = 'nav-tools';
 
-  if (isAdobeHubPage()) {
-    const userButton = document.createElement('button');
-    userButton.className = 'dropdown-button nav-header-user';
-    userButton.setAttribute('type', 'button');
-    userButton.setAttribute('aria-label', 'Signed in user');
-    userButton.innerHTML = `
-      <span class="nav-header-user-icon" aria-hidden="true">
-        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z" fill="currentColor"/>
-          <path d="M10 12C5.58172 12 2 14.2386 2 17V20H18V17C18 14.2386 14.4183 12 10 12Z" fill="currentColor"/>
-        </svg>
-      </span>
-      <span class="nav-header-user-name">Tano Polizzi</span>
-    `;
-    navTools.appendChild(userButton);
-  } else if (isIndexLoginPage()) {
-    const loginButton = document.createElement('button');
-    loginButton.className = 'dropdown-button nav-header-login';
-    loginButton.setAttribute('type', 'button');
-    loginButton.textContent = 'Login';
-    navTools.appendChild(loginButton);
+  if (isAdobeHubPage() || isIndexHomePage()) {
+    appendHeaderUserChip(navTools);
+  } else if (isLandingPage()) {
+    const loginLink = document.createElement('a');
+    loginLink.className = 'dropdown-button nav-header-login';
+    const base = (window.hlx?.codeBasePath || '').replace(/\/$/, '');
+    loginLink.href = base ? `${base}/landing` : '/landing';
+    loginLink.textContent = 'Login';
+    navTools.appendChild(loginLink);
   } else {
     const clubsButton = document.createElement('button');
     clubsButton.className = 'dropdown-button';
