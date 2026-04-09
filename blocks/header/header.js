@@ -20,21 +20,38 @@ export default async function decorate(block) {
   const topRow = document.createElement('div');
   topRow.className = 'nav-top-row';
 
-  // Tools section (Clubs button)
+  // Tools section: Clubs everywhere except Adobe Hub (user chip, same green outline)
   const navTools = document.createElement('div');
   navTools.className = 'nav-tools';
 
-  const clubsButton = document.createElement('button');
-  clubsButton.className = 'dropdown-button';
-  clubsButton.setAttribute('type', 'button');
-  clubsButton.innerHTML = `
-    Clubs
-    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
-      <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" fill="none"/>
-    </svg>
-  `;
-
-  navTools.appendChild(clubsButton);
+  const isAdobeHub = document.body.classList.contains('adobe-hub');
+  if (isAdobeHub) {
+    const userButton = document.createElement('button');
+    userButton.className = 'dropdown-button nav-header-user';
+    userButton.setAttribute('type', 'button');
+    userButton.setAttribute('aria-label', 'Signed in user');
+    userButton.innerHTML = `
+      <span class="nav-header-user-icon" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z" fill="currentColor"/>
+          <path d="M10 12C5.58172 12 2 14.2386 2 17V20H18V17C18 14.2386 14.4183 12 10 12Z" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="nav-header-user-name">Tano Polizzi</span>
+    `;
+    navTools.appendChild(userButton);
+  } else {
+    const clubsButton = document.createElement('button');
+    clubsButton.className = 'dropdown-button';
+    clubsButton.setAttribute('type', 'button');
+    clubsButton.innerHTML = `
+      Clubs
+      <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" fill="none"/>
+      </svg>
+    `;
+    navTools.appendChild(clubsButton);
+  }
 
   // Add title from first fragment section to top row
   if (fragment && fragment.children.length > 0) {

@@ -137,6 +137,26 @@ header .nav-tools .dropdown-icon {
   height: 16px;
 }
 
+header .nav-tools .nav-header-user {
+  gap: 10px;
+}
+
+header .nav-tools .nav-header-user-icon {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--text-color-light);
+}
+
+header .nav-tools .nav-header-user-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+header .nav-tools .nav-header-user-name {
+  font-weight: 700;
+  font-size: 14px;
+}
+
 /* Links */
 header nav a:any-link {
   color: rgb(255 255 255 / 85%);
