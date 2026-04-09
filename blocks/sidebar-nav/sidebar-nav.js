@@ -1,3 +1,4 @@
+import { isAdobeHubPage } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 export default async function decorate(block) {
@@ -261,7 +262,7 @@ export default async function decorate(block) {
   
   // Footer user chip: shown in sidebar except on Adobe Hub (header shows same user in Clubs slot)
   let footer = null;
-  if (!document.body.classList.contains('adobe-hub')) {
+  if (!isAdobeHubPage()) {
     footer = document.createElement('div');
     footer.className = 'sidebar-nav-footer';
 

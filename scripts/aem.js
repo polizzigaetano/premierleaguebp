@@ -310,6 +310,18 @@ function getMetadata(name, doc = document) {
 }
 
 /**
+ * Adobe Hub layout: template body class adobe-hub, or URL contains /adobe-hub
+ * (path fallback when page metadata omits template).
+ * @param {Document} [doc]
+ * @returns {boolean}
+ */
+function isAdobeHubPage(doc = document) {
+  const win = doc.defaultView || window;
+  if (doc.body.classList.contains('adobe-hub')) return true;
+  return win.location.pathname.includes('/adobe-hub');
+}
+
+/**
  * Returns a picture element with webp and fallbacks
  * @param {string} src The image URL
  * @param {string} [alt] The image alternative text
@@ -721,6 +733,7 @@ export {
   decorateSections,
   decorateTemplateAndTheme,
   getMetadata,
+  isAdobeHubPage,
   loadBlock,
   loadCSS,
   loadFooter,

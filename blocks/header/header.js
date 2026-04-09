@@ -1,4 +1,4 @@
-import { getMetadata } from '../../scripts/aem.js';
+import { getMetadata, isAdobeHubPage } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 /**
@@ -24,7 +24,7 @@ export default async function decorate(block) {
   const navTools = document.createElement('div');
   navTools.className = 'nav-tools';
 
-  const isAdobeHub = document.body.classList.contains('adobe-hub');
+  const isAdobeHub = isAdobeHubPage();
   if (isAdobeHub) {
     const userButton = document.createElement('button');
     userButton.className = 'dropdown-button nav-header-user';
