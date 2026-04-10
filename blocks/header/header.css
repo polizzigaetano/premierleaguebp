@@ -1,6 +1,6 @@
 /* Header with Sky gradient bar and two-row layout */
 header .nav-wrapper {
-  background-color: var(--pl-purple);
+  background-color: #fff;
   width: 100%;
   z-index: 100;
   position: fixed;
@@ -22,6 +22,7 @@ header nav {
   flex-direction: column;
   margin: auto;
   max-width: 100%;
+  padding-top: 24px;
   font-family: var(--body-font-family);
 }
 
@@ -32,7 +33,7 @@ header .nav-top-row {
   justify-content: space-between;
   min-height: 60px;
   padding: 0 24px 12px;
-  margin-top: 24px;
+  margin-top: 0;
 }
 
 /* Title in top row */
@@ -83,7 +84,7 @@ header .nav-title li {
 header .nav-title li:not(:last-child)::after {
   content: '|';
   margin: 0 12px;
-  color: rgb(255 255 255 / 50%);
+  color: rgb(56 0 60 / 35%);
 }
 
 header .nav-title h1,
@@ -93,7 +94,7 @@ header .nav-title h4 {
   margin: 0;
   font-size: 20px;
   font-weight: 600;
-  color: var(--text-color-light);
+  color: #000;
   line-height: 1;
 }
 
@@ -122,14 +123,14 @@ header .nav-tools .dropdown-button {
   font-size: 14px;
   font-weight: 700;
   font-style: normal;
-  color: var(--text-color-light);
+  color: var(--text-color);
   cursor: pointer;
   transition: background-color var(--transition-fast), border-color var(--transition-fast);
 }
 
 header .nav-tools .dropdown-button:hover {
-  background-color: rgb(255 255 255 / 15%);
-  border-color: var(--text-color-light);
+  background-color: rgb(56 0 60 / 6%);
+  border-color: var(--text-color);
 }
 
 header .nav-tools .dropdown-icon {
@@ -144,7 +145,7 @@ header .nav-tools .nav-header-user {
 header .nav-tools .nav-header-user-icon {
   display: flex;
   flex-shrink: 0;
-  color: var(--text-color-light);
+  color: var(--text-color);
 }
 
 header .nav-tools .nav-header-user-icon svg {
@@ -159,7 +160,7 @@ header .nav-tools .nav-header-user-name {
 
 /* Links */
 header nav a:any-link {
-  color: rgb(255 255 255 / 85%);
+  color: var(--text-color);
   transition: color var(--transition-fast);
   text-decoration: none;
   position: relative;
