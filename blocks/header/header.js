@@ -39,7 +39,7 @@ function appendHeaderUserChip(navTools) {
         <path d="M10 12C5.58172 12 2 14.2386 2 17V20H18V17C18 14.2386 14.4183 12 10 12Z" fill="currentColor"/>
       </svg>
     </span>
-    <span class="nav-header-user-name">Tano Polizzi</span>
+    <span class="nav-header-user-name">Matt Quinn</span>
   `;
   navTools.appendChild(userButton);
 }
